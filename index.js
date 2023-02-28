@@ -7,7 +7,7 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [
     {
         type: 'input',
-        message: 'Please enter your answers for following questions: ',
+        message: 'Please enter your answers for following questions to create your README file... ',
         name: 'instruction',
     },
     {
@@ -17,7 +17,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter your your table of contents: ',
+        message: 'Please enter the table of contents: ',
         name: 'contents',
     },
     {
@@ -32,12 +32,12 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter list of your collaborators or third-party assets, if any, with links to their GitHub profiles ',
+        message: 'Please enter list of your collaborators or third-party assets, if any, with links to their GitHub profiles: ',
         name: 'credits',
     },
     {
         type: 'list',
-        message: 'Please enter appropriate license for your application : ',
+        message: 'Please enter appropriate license for your application: ',
         name: 'license',
         choices: ['MIT', 'Apache 2.0', 'GNU v3.0', 'Eclipse 2.0', 'Mozilla 2.0', 'Boost Software 1.0', 'other']
     },
@@ -48,33 +48,33 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter github account name: ',
+        message: 'Please enter your github account name: ',
         name: 'Qgithub',
     },
     {
         type: 'input',
-        message: 'Please enter e-mail address: ',
+        message: 'Please enter your e-mail address: ',
         name: 'Qemail',
     },
     {
         type: 'input',
-        message: 'Please enter name of README file: ',
-        name: 'filename',
+        message: 'Please enter name for your README file: ',
+        name: 'fileName',
     },
-    
-    
-
-
 ];
 
 // function to write README file
 function writeToFile(fileName, data) {
-}
+    fs.writeFile(fileName, data, error => 
+    error ? console.error(error) : console.log("README has been created succesfully!"));
+};
 
 // function to initialize program
 function init() {
-
-}
+    inquirer.prompt(questions).then(data => {
+    writeToFile(`${data.fileName}.md`, generateMarkdown.generateMarkdown(data));
+    });
+};
 
 // function call to initialize program
 init();
