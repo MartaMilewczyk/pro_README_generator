@@ -22,11 +22,6 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please enter the table of contents: ',
-        name: 'contents',
-    },
-    {
-        type: 'input',
         message: 'Please enter steps required to install your application: ',
         name: 'installation',
     },
@@ -44,12 +39,17 @@ const questions = [
         type: 'list',
         message: 'Please enter appropriate license for your application: ',
         name: 'license',
-        choices: ['MIT', 'Apache 2.0', 'GNU v3.0', 'Eclipse 2.0', 'Mozilla 2.0', 'Boost Software 1.0', 'other']
+        choices: ['MIT', 'Apache 2.0', 'GNU v3.0', 'Eclipse 1.0', 'Mozilla 2.0', 'Boost Software 1.0', 'other']
     },
     {
         type: 'input',
         message: 'Please enter guidelines for developer contribution: ',
         name: 'contribution',
+    },
+    {
+        type: 'input',
+        message: 'Please enter examples and description how to run tests: ',
+        name: 'tests',
     },
     {
         type: 'input',
