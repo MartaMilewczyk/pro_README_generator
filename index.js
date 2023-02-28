@@ -17,6 +17,11 @@ const questions = [
     },
     {
         type: 'input',
+        message: 'Please enter description explaining aim of your project: ',
+        name: 'description',
+    },
+    {
+        type: 'input',
         message: 'Please enter the table of contents: ',
         name: 'contents',
     },
